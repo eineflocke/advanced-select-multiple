@@ -57,6 +57,7 @@ class Asm {
         const scrolltop = document.querySelector(sel3).scrollTop;
         q.querySelector(`${sel3} option[value="${e.target.value}"]`).disabled = null;
         e.target.disabled = 'disabled';
+        q.querySelectorAll(`.asm-noselect option`).forEach(qq => qq.selected = null);
         q.querySelectorAll(`.asm-selected option`).forEach(qq => qq.selected = 'selected');
         setTimeout(() => document.querySelector(sel2).scrollTop = scrolltop, 0);
 

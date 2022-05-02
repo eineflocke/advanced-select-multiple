@@ -1,11 +1,19 @@
 # advanced-select-multiple
 
+![](https://raw.githubusercontent.com/eineflocke/advanced-select-multiple/master/sample.gif)
+
 more useful `<select multiple>`
+
 just click (no Ctrl needed) and select/unselect from list
 
 ## usage
 
 1. load `asm.js`
+
+```html
+<script src="asm.js"></script>
+```
+
 2. prepare a DOM element containing vacant `<select class="asm-noselect" multiple>` and `<select class="asm-selected" multiple>`
 
 ```html
