@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<title>advanced-select-multiple sample</title>
+<script src="asm.js"></script>
+<style>
+body > div {
+  padding: 10px;
+}
+.asm-noselect, .asm-selected {
+  width: 250px;
+  height: 100px;
+}
+.asm-select-wrapper {
+  display: inline-block;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h3>standard example</h3>
+<div id="test">
+  <div class="asm-select-wrapper">
+    non-selected<br />
+    <select class="asm-noselect" multiple></select>
+  </div>
+  <div class="asm-select-wrapper">
+    selected<br />
+    <select class="asm-selected" multiple></select>
+  </div><br />
+  # of selected = <span class="asm-selected-num"></span>, non-selected = <span class="asm-noselect-num"></span><br />
+  <button id="getselected">get selected options</button><br />
+  <span id="display-selected"></span>
+</div>
+
+<h3>initialization with a simple array</h3>
+<div class="test2">
+  <select class="asm-noselect" multiple></select>
+  <select class="asm-selected" multiple></select>
+</div>
+
+<h3>initialization with pre-selected setting</h3>
+<div class="test3">
+  <select class="asm-noselect" multiple></select>
+  <select class="asm-selected" multiple></select>
+</div>
+
+<script>
+const asm = new Asm('#test', {
+  option1: 'option with value "option1"',
+  option2: 'more option with value "option2"',
+  option3: 'another option with value "option3"'
+});
+document.querySelector('#getselected').addEventListener('click', () => {
+  document.querySelector('#display-selected').innerHTML = `
+    value: ${asm.getselected('value')}<br />
+    text: ${asm.getselected('text')}
+  `;
+});
+
+new Asm('.test2', [1, 2, 3, 5, 8, 13, 21]);
+
+new Asm('.test3', {
+  a: {
+    text: 'pre-selected option',
+    selected: true
+  },
+  b: {
+    text: 'non-pre-selected option',
+    selected: false
+  },
+  c: 'default is non-pre-selected'
+});
+</script>
+</body>
+</html>
