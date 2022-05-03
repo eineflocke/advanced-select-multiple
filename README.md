@@ -24,7 +24,7 @@ just click (no Ctrl needed) and select/unselect from list
 ```
 
 3. add styling
-4. make a new instance from `Asm` with object/array for option initialization
+4. make a new instance from `new Asm(CSSselector, object or array)` for option initialization
 
 ```js
 const asm = new Asm('#test', {
@@ -46,4 +46,11 @@ new Asm('.test3', {
   },
   c: 'default is non-pre-selected'
 });
+```
+
+5. `Asm.getselected()` to get selected options as array
+
+```js
+asm.getselected(); // value
+asm.getselected('text'); // text
 ```
