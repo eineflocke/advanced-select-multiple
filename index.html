@@ -53,6 +53,7 @@ const asm = new Asm('#test', {
   option2: 'more option with value "option2"',
   option3: 'another option with value "option3"'
 });
+
 document.querySelector('#getselected').addEventListener('click', () => {
   document.querySelector('#display-selected').innerHTML = `
     value: ${asm.getselected('value')}<br />
