@@ -48,6 +48,9 @@ body > div {
 </div>
 
 <script>
+
+'use strict';
+
 const asm = new Asm('#test', {
   option1: 'option with value "option1"',
   option2: 'more option with value "option2"',
@@ -61,19 +64,23 @@ document.querySelector('#getselected').addEventListener('click', () => {
   `;
 });
 
-new Asm('.test2', [1, 2, 3, 5, 8, 13, 21]);
+new Asm('.test2', [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 'test']);
 
-new Asm('.test3', {
-  a: {
+new Asm('.test3', [
+  {
+    value: 'a',
     text: 'pre-selected option',
     selected: true
-  },
-  b: {
+  }, {
+    value: 'b',
     text: 'non-pre-selected option',
     selected: false
-  },
-  c: 'default is non-pre-selected'
-});
+  }, {
+    value: 'c',
+    text: 'default is non-pre-selected',
+  }
+]);
+
 </script>
 </body>
 </html>

@@ -24,7 +24,7 @@ just click (no Ctrl needed) and select/unselect from list
 ```
 
 3. add styling
-4. make a new instance from `new Asm(CSSselector, object or array)` for option initialization
+4. make a new instance from `new Asm(CSSSelector, object or array)` for option initialization
 
 ```js
 const asm = new Asm('#test', {
@@ -33,24 +33,36 @@ const asm = new Asm('#test', {
   option3: 'another option with value "option3"'
 });
 
-new Asm('.test2', [1, 2, 3, 5, 8, 13, 21]);
+new Asm('.test2', [1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 'test']);
 
-new Asm('.test3', {
-  a: {
+new Asm('.test3', [
+  {
+    value: 'a',
     text: 'pre-selected option',
     selected: true
-  },
-  b: {
+  }, {
+    value: 'b',
     text: 'non-pre-selected option',
     selected: false
-  },
-  c: 'default is non-pre-selected'
-});
+  }, {
+    value: 'c',
+    text: 'default is non-pre-selected',
+  }
+]);
 ```
 
-5. `Asm.getselected()` to get selected options as array
+### methods
+
+- `Asm.getselected()` to get selected options as array
 
 ```js
 asm.getselected(); // value
 asm.getselected('text'); // text
+```
+
+- `Asm.toggle(value, 'select' | 'unselect')` to select/unselect an option
+
+```js
+asm.toggle('option1', 'select');
+asm.toggle('option2', 'unselect');
 ```
